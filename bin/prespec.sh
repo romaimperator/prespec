@@ -2,9 +2,14 @@
 
 set -e
 
+PRESPEC="lib/prespec.php"
 FILENAME=$1
 main() {
-  php -f "lib/spec_reader.php" -- $FILENAME
+  php_command $PRESPEC -- $FILENAME
+}
+
+php_command() {
+  php -f $*
 }
 
 main
